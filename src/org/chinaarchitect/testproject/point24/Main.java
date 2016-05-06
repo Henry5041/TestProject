@@ -41,6 +41,7 @@ public class Main {
 
 	public static HashSet<int[]> patternIterator(int[] num) {
 		HashSet<int[]> patterns = new HashSet<int[]>();
+		// Iterate every possible patterns with the same 4 numbers
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				for (int k = 0; k < 4; k++) {
@@ -66,19 +67,19 @@ public class Main {
 	}
 
 	public static String getFormula(int[] pattern) {
-		// TODO finish this part
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				for (int k = 0; k < 6; k++) {
-
-					if (calculator(calculator(calculator(pattern[0], pattern[1], i), pattern[2], j), pattern[3],
-							k) == 24) {
+					double result = calculator(calculator(calculator(pattern[0], pattern[1], i), pattern[2], j),
+							pattern[3], k);
+					if (result > 23.99999 && result < 24.00001) { // Reduce the
+																	// accuracy
 						String formula = formulaWriter(
 								formulaWriter(formulaWriter(Integer.toString(pattern[0]), pattern[1], i), pattern[2],
 										j),
 								pattern[3], k);
-						return formula;
+						return formula + " = " + result;
 					}
 
 				}
@@ -87,8 +88,9 @@ public class Main {
 		return "";
 	}
 
+	// TODO Write way of group calculation
 	public static double calculator(double firstNum, double secondNum, int operationCase) {
-		double finalNum = firstNum;
+		double finalNum = firstNum; // Initialize the finalNum
 		switch (operationCase) {
 		case 0:
 			finalNum = firstNum + secondNum;
@@ -103,20 +105,25 @@ public class Main {
 			finalNum = firstNum * secondNum;
 			break;
 		case 4:
-			finalNum = ((double) firstNum / (double) secondNum);
+			finalNum = ((double) firstNum / (double) secondNum); // Change type
+																	// to
+																	// increase
+																	// the
+																	// accuracy
 			break;
 		case 5:
 			try {
 				finalNum = ((double) secondNum / (double) firstNum);
 			} catch (java.lang.ArithmeticException e) {
-
+				// TODO add codes to handle the zero exception
 			}
 			break;
 		}
 		return finalNum;
 
 	}
-
+	
+	// TODO Write way of group calculation
 	public static String formulaWriter(String formula, int num, int operationCase) {
 		switch (operationCase) {
 		case 0:
@@ -126,7 +133,8 @@ public class Main {
 			formula = formula + " - " + num;
 			break;
 		case 2:
-			formula = num + " - (" + formula + ")";
+			formula = num + " - (" + formula + ")"; // Add brackets to avoid
+													// changing operations
 			break;
 		case 3:
 			formula = "(" + formula + ") * " + num;
@@ -141,7 +149,7 @@ public class Main {
 		return formula;
 
 	}
-
+	// method of testing
 	public static void output(int[] array) {
 
 		if (array != null) {
