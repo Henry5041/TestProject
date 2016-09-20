@@ -1,16 +1,12 @@
-package org.chinaarchitect.testproject.randomgen;
-
-import java.util.Scanner;
+package org.chinaarchitect.testproject.fileio;
 
 import org.chinaarchitect.testproject.util.InvalidLimitException;
 import org.chinaarchitect.testproject.util.RandomInt;
 
-public class GeneratorTester {
+public class HexGenerator {
 
-	public GeneratorTester() throws InvalidLimitException {
-		// TODO Auto-generated constructor stub
-		Scanner Console = new Scanner(System.in);
-		int input = Integer.parseInt(Console.next());
+	public static void main(String[] args) throws InvalidLimitException {
+		// TODO Auto-generated method stub
 		int[] list = new int[16];
 		for (int i = 0; i < 100000; i++) {
 			int ranInt = new RandomInt(0, 15).getInteger();

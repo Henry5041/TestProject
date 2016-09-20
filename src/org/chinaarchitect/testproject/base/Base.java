@@ -12,7 +12,6 @@ public class Base {
 		int quotient = 0;
 		int remainder = 0;
 		String result = "";
-	
 
 		quotient = initialNumber;
 
@@ -20,7 +19,7 @@ public class Base {
 			remainder = quotient % baseNumber;
 			quotient = (quotient - remainder) / baseNumber;
 			result = remainder + result;
-			
+
 		}
 
 		return result;

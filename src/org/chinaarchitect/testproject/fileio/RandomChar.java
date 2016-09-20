@@ -1,4 +1,4 @@
-package org.chinaarchitect.testproject.randomgen;
+package org.chinaarchitect.testproject.fileio;
 
 import org.chinaarchitect.testproject.util.InvalidLimitException;
 import org.chinaarchitect.testproject.util.RandomInt;

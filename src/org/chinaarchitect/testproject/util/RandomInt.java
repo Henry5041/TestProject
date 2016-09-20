@@ -5,7 +5,7 @@ public class RandomInt {
 
 	public RandomInt(int lowerLimit, int upperLimit) throws InvalidLimitException {
 		// TODO Auto-generated constructor stub
-		if (upperLimit < lowerLimit){
+		if (upperLimit < lowerLimit) {
 			throw new InvalidLimitException("You inputted a higher lowerLimit than upperLimit!");
 		}
 		integer = (int) (Math.random() * (upperLimit + 1 - lowerLimit)) + lowerLimit;
